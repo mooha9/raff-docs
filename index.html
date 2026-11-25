@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دليل ثيم رَف</title>
+<meta name="description" content="دليل إعداد ثيم رَف لمتاجر المنتجات الرقمية على سلة: الأقسام، صفحة المنتج، الألوان والدعم.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --ground: #f4f6fa; --surface: #ffffff; --ink: #0f1a2e; --muted: #5a6478;
+  --line: #e3e8f0; --accent: #2457e6; --accent-dark: #1a44b8; --accent-soft: #e6edfd;
+  --display: 'Alexandria', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --body: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+}
+* { box-sizing: border-box }
+html { scroll-behavior: smooth; scroll-padding-top: 24px }
+body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.85 }
+a { color: var(--accent-dark) }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px }
+
+.top { background: var(--surface); border-bottom: 1px solid var(--line) }
+.top__in { max-width: 1120px; margin: 0 auto; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap }
+.logo { font-family: var(--display); font-weight: 700; font-size: 24px; color: var(--ink); text-decoration: none }
+.logo b { color: var(--accent) }
+.top__help { font-size: 14.5px; color: var(--muted) }
+
+.hero { background: var(--surface); border-bottom: 1px solid var(--line) }
+.hero__in { max-width: 1120px; margin: 0 auto; padding: 48px 20px 44px }
+.chip { display: inline-block; padding: 4px 12px; border-radius: 8px; background: var(--accent-soft); color: var(--accent-dark); font-size: 13.5px; font-weight: 600; margin-bottom: 14px }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(28px, 4.4vw, 42px); line-height: 1.3; margin: 0; text-wrap: balance }
+h1 span { color: var(--accent) }
+.hero p { max-width: 60ch; color: var(--muted); font-size: 17px; margin: 14px 0 0 }
+
+.layout { max-width: 1120px; margin: 0 auto; padding: 36px 20px 72px; display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 40px; align-items: start }
+.toc { position: sticky; top: 24px; font-size: 14.5px }
+.toc strong { display: block; font-size: 13px; color: var(--muted); margin-bottom: 8px; font-weight: 600 }
+.toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; border-inline-start: 2px solid var(--line) }
+.toc a { display: block; padding: 6px 14px; color: var(--ink); text-decoration: none; margin-inline-start: -2px; border-inline-start: 2px solid transparent }
+.toc a:hover { color: var(--accent); border-inline-start-color: var(--accent) }
+
+main { display: flex; flex-direction: column; gap: 22px; min-width: 0 }
+section { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px 30px }
+h2 { font-family: var(--display); font-weight: 700; font-size: 22px; margin: 0 0 6px }
+h3 { font-size: 17px; margin: 22px 0 6px }
+section > p:first-of-type { margin-top: 0 }
+p { margin: 10px 0 }
+.lead { color: var(--muted) }
+ol.steps { margin: 12px 0 0; padding: 0; list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 10px }
+ol.steps li { counter-increment: s; display: flex; gap: 12px }
+ol.steps li::before { content: counter(s, arabic-indic); flex: none; width: 28px; height: 28px; border-radius: 8px; background: var(--accent-soft); color: var(--accent-dark); font-weight: 700; display: grid; place-items: center; font-size: 14px; margin-top: 2px }
+.path { display: inline-block; padding: 1px 8px; border-radius: 6px; background: var(--ground); border: 1px solid var(--line); font-size: 14.5px; white-space: nowrap }
+
+.table-wrap { overflow-x: auto; margin-top: 12px; border: 1px solid var(--line); border-radius: 12px }
+table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 460px }
+th, td { text-align: start; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top }
+th { background: var(--ground); font-weight: 600; font-size: 14px; color: var(--muted) }
+tr:last-child td { border-bottom: 0 }
+td:first-child { font-weight: 600; white-space: nowrap }
+
+.note { margin-top: 14px; padding: 12px 16px; border-radius: 10px; background: var(--accent-soft); color: var(--ink); font-size: 15px }
+.note b { color: var(--accent-dark) }
+
+details { border-top: 1px solid var(--line); padding: 14px 0 }
+details:last-of-type { border-bottom: 1px solid var(--line) }
+summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px }
+summary::-webkit-details-marker { display: none }
+summary::after { content: '+'; font-size: 20px; line-height: 1; color: var(--muted) }
+details[open] summary::after { content: '−' }
+details p { color: var(--muted); margin-bottom: 0 }
+
+.contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 14px }
+.contact div { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px }
+.contact span { display: block; font-size: 13px; color: var(--muted) }
+.contact a, .contact b { font-weight: 600; direction: ltr; unicode-bidi: plaintext }
+
+footer { text-align: center; color: var(--muted); font-size: 14px; padding: 0 20px 40px }
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 20px }
+  .toc { position: static; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px }
+  section { padding: 22px 18px }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top__in">
+    <a class="logo" href="#">رَف<b>.</b></a>
+    <span class="top__help">دليل الإعداد للتجّار</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero__in">
+    <span class="chip">ثيم لمتاجر المنتجات الرقمية على سلة</span>
+    <h1>جهّز متجرك مع رَف <span>خلال دقائق</span></h1>
+    <p>هذا الدليل يشرح كل إعدادات الثيم: الأقسام الخاصة بالصفحة الرئيسية، صفحة المنتج، الألوان، وطريقة إضافة خيار الرخصة لملفاتك.</p>
+  </div>
+</div>
+
+<div class="layout">
+  <nav class="toc" aria-label="محتويات الدليل">
+    <strong>المحتويات</strong>
+    <ol>
+      <li><a href="#start">البداية</a></li>
+      <li><a href="#colors">الألوان والخطوط</a></li>
+      <li><a href="#blocks">أقسام الصفحة الرئيسية</a></li>
+      <li><a href="#cards">بطاقة المنتج</a></li>
+      <li><a href="#product">صفحة المنتج</a></li>
+      <li><a href="#license">خيار الرخصة</a></li>
+      <li><a href="#faq">أسئلة شائعة</a></li>
+      <li><a href="#support">الدعم</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="start">
+      <h2>البداية</h2>
+      <p class="lead">بعد تثبيت الثيم على متجرك، كل الإعدادات من مكان واحد في لوحة سلة.</p>
+      <ol class="steps">
+        <li><span>افتح لوحة التحكم ثم <span class="path">المتجر الإلكتروني</span> ثم <span class="path">تصميم المتجر</span>.</span></li>
+        <li><span>اختر رَف واضغط <span class="path">تخصيص</span>. تظهر لك إعدادات الثيم وقائمة أقسام الصفحة الرئيسية.</span></li>
+        <li><span>أضف الأقسام اللي تحتاجها ورتّبها بالسحب، ثم احفظ. التغيير يظهر لعملائك مباشرة بعد الحفظ.</span></li>
+      </ol>
+      <p class="note"><b>نصيحة:</b> ابدأ بقسم «واجهة رَف الرئيسية» ثم «الأكثر مبيعًا» ثم «كيف يوصلك الملف». هذا الترتيب يجاوب أهم أسئلة العميل قبل الشراء.</p>
+    </section>
+
+    <section id="colors">
+      <h2>الألوان والخطوط</h2>
+      <p>رَف يستخدم أرضية رمادية مزرقة فاتحة وأسطح بيضاء، ولون أزرق ثابت للأزرار والسلة والكلمات المبرزة. اخترنا الأزرق لأنه يعطي العميل إحساس بالثقة وقت الدفع.</p>
+      <h3>استخدام لون متجرك بدل الأزرق</h3>
+      <p>من إعدادات الثيم فعّل <span class="path">استخدام لون المتجر بدل أزرق رَف</span>. بعدها تأخذ الأزرار والسلة اللون الأساسي من <span class="path">إعدادات الهوية</span> في متجرك، وتتلوّن الخلفيات الفاتحة بدرجة خفيفة منه.</p>
+      <h3>الخطوط</h3>
+      <p>العناوين بخط Alexandria، والنصوص بالخط اللي تختاره من إعدادات المتجر.</p>
+    </section>
+
+    <section id="blocks">
+      <h2>أقسام الصفحة الرئيسية</h2>
+      <p class="lead">خمسة أقسام خاصة برَف، بالإضافة لكل أقسام سلة المعتادة (المنتجات، البنرات، آراء العملاء، الماركات، المدونة، الفيديو، مميزات المتجر) وكلها منسّقة بنفس الشكل.</p>
+
+      <h3>واجهة رَف الرئيسية</h3>
+      <p>أول ما يشوفه العميل: عنوان كبير ووصف وزرّين، وثلاثة أغلفة لأبرز ملفاتك.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>الحقل</th><th>وش يسوي</th></tr></thead>
+        <tbody>
+          <tr><td>سطر صغير فوق العنوان</td><td>يظهر كشارة زرقاء فاتحة، مثل «أكثر من ٣٠٠ ملف جاهز».</td></tr>
+          <tr><td>العنوان</td><td>الجملة الرئيسية للمتجر.</td></tr>
+          <tr><td>كلمة مبرزة في العنوان</td><td>اكتب كلمة أو كلمتين موجودة في العنوان نفسه، وتظهر باللون المميز. اتركها فارغة بدون إبراز.</td></tr>
+          <tr><td>الوصف</td><td>سطر أو سطرين تحت العنوان.</td></tr>
+          <tr><td>الزر الأساسي والثانوي</td><td>نص كل زر ورابطه (تصنيف، منتج، صفحة أو رابط خارجي).</td></tr>
+          <tr><td>الميزة الأولى والثانية والثالثة</td><td>نقاط قصيرة تحت الأزرار، مثل «تحميل فوري».</td></tr>
+          <tr><td>الأغلفة الثلاثة</td><td>صور عمودية بنسبة ٣:٤. بدون صور تظهر أغلفة ملوّنة بدالها.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>تصفح حسب نوع الملف</h3>
+      <p>بطاقات لأنواع ملفاتك، كل وحدة فيها الاسم وسطر تحته (مثل «٤٢ ملف») ووسم قصير (مثل PDF) ورابط. في الجوال تصير صف ينسحب أفقيًا.</p>
+
+      <h3>كيف يوصلك الملف</h3>
+      <p>خطوات مرقّمة تشرح للعميل وش يصير بعد الدفع. أضف ثلاث أو أربع خطوات، كل خطوة بعنوان وشرح قصير.</p>
+
+      <h3>باقة مميزة</h3>
+      <p>بطاقة داكنة لعرض باقة ملفات: عنوان ووصف وسعر وسعر قبل الخصم وزر، ولين ست صور أغلفة. اربط الزر بصفحة منتج الباقة.</p>
+
+      <h3>أسئلة شائعة</h3>
+      <p>أسئلة وأجوبة تنفتح بالضغط. أهم الأسئلة: كيف أحمّل الملف، هل أقدر أعدّله، وش الفرق بين الرخص، وهل فيه استرجاع.</p>
+    </section>
+
+    <section id="cards">
+      <h2>بطاقة المنتج</h2>
+      <p>كل منتج يظهر في بطاقة بيضاء، صورته داخل إطار أزرق فاتح، وتحتها الاسم والسعر وزر السلة وزر المفضلة.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>الإعداد</th><th>الخيارات</th></tr></thead>
+        <tbody>
+          <tr><td>شكل بطاقة المنتج</td><td>عمودي (الافتراضي) أو أفقي.</td></tr>
+          <tr><td>شكل صورة بطاقة المنتج</td><td>طولية ٣:٤ (الافتراضي، الأنسب لأغلفة الكتب والقوالب)، مربعة، أفقية، أو حسب شكل الصورة.</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note"><b>المنتج النافد:</b> تصير صورته رمادية وتظهر فوقها شارة «نفدت الكمية» تلقائيًا، ويظل العميل يقدر يفتح المنتج.</p>
+    </section>
+
+    <section id="product">
+      <h2>صفحة المنتج</h2>
+      <p>صور المنتج على خلفية فاتحة، وجنبها الاسم والسعر وصندوق الشراء. إذا عليه خصم تظهر شارة «وفّر» بالنسبة المحسوبة من السعرين.</p>
+      <h3>قائمة «وش يوصلك»</h3>
+      <p>تظهر تحت زر الشراء في المنتجات الرقمية ومنتجات الأكواد فقط. تعدّلها من إعدادات الثيم في قسم <span class="path">خيارات صفحة المنتج</span>:</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>الإعداد</th><th>وش يسوي</th></tr></thead>
+        <tbody>
+          <tr><td>إظهار القائمة</td><td>يشغّلها أو يخفيها من كل المنتجات.</td></tr>
+          <tr><td>عنوان القائمة</td><td>الافتراضي «وش يوصلك».</td></tr>
+          <tr><td>عناصر القائمة</td><td>كل سطر عنصر مستقل، مثل «نسخة PDF جاهزة للطباعة».</td></tr>
+          <tr><td>ملاحظة التحميل</td><td>جملة تظهر فوق القائمة عن طريقة التحميل. اتركها فارغة لإخفائها.</td></tr>
+        </tbody>
+      </table></div>
+      <h3>محتوى الملف</h3>
+      <p>اكتب مواصفات الملف في <span class="path">بيانات المنتج</span> ثم <span class="path">المواصفات</span> (مثل عدد الصفحات، الصيغة، اللغة)، وتظهر في جدول مرتب تحت الصور.</p>
+      <h3>شريط الشراء في الجوال</h3>
+      <p>فعّل <span class="path">تثبيت زر الإضافة والكمية أسفل شاشة الجوال</span> ليبقى السعر وزر الشراء ظاهرين وقت ما العميل ينزل في الصفحة.</p>
+    </section>
+
+    <section id="license">
+      <h2>خيار الرخصة (شخصية أو تجارية)</h2>
+      <p>الرخصة خيار من خيارات المنتج في سلة، وتختلف من منتج لمنتج، وبكذا تتحكم بسعر كل رخصة.</p>
+      <ol class="steps">
+        <li><span>افتح المنتج ثم <span class="path">خيارات المنتج</span> وأضف خيار جديد باسم «الرخصة».</span></li>
+        <li><span>أضف قيمتين: «رخصة شخصية» و«رخصة تجارية»، وحط فرق السعر على التجارية.</span></li>
+        <li><span>احفظ. الخيار يظهر في صندوق الشراء، والسعر يتحدث مباشرة لما العميل يختار.</span></li>
+      </ol>
+    </section>
+
+    <section id="faq">
+      <h2>أسئلة شائعة</h2>
+      <details><summary>أضفت قسم وما ظهر في المتجر</summary><p>تأكد إنك حفظت التغييرات، وإن الحقول المطلوبة معبّاة. قسم الواجهة مثلًا ما يظهر بدون عنوان.</p></details>
+      <details><summary>قائمة «وش يوصلك» ما تظهر في منتجي</summary><p>تظهر في المنتجات اللي نوعها «منتج رقمي» أو «أكواد» فقط. تأكد من نوع المنتج في بياناته، وإن القائمة مفعّلة في إعدادات الثيم.</p></details>
+      <details><summary>أبي الأزرار بلون متجري</summary><p>فعّل «استخدام لون المتجر بدل أزرق رَف» من إعدادات الثيم، واختر اللون من إعدادات الهوية في متجرك.</p></details>
+      <details><summary>صور المنتجات مقصوصة</summary><p>غيّر «شكل صورة بطاقة المنتج» للشكل الأقرب لصورك، أو ارفع صورك بنسبة ٣:٤.</p></details>
+      <details><summary>هل الثيم يدعم اللغة الإنجليزية؟</summary><p>إيه، الثيم يدعم العربي والإنجليزي، ويتعدّل اتجاه الصفحة تلقائيًا حسب اللغة.</p></details>
+    </section>
+
+    <section id="support">
+      <h2>الدعم</h2>
+      <p>إذا واجهتك أي مشكلة أو عندك سؤال، تواصل معنا ونرد خلال يومين عمل كحد أقصى.</p>
+      <div class="contact">
+        <div><span>واتساب</span><a href="https://wa.me/966507032067">+966 50 703 2067</a></div>
+        <div><span>الجوال</span><b>+966 50 703 2067</b></div>
+        <div><span>الإيميل</span><a href="mailto:majoodahstore@gmail.com">majoodahstore@gmail.com</a></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>ثيم رَف لمنصة سلة</footer>
+</body>
+</html>
